@@ -547,7 +547,7 @@ def update_module_names(cr, namespec):
     as well as updating the module reference in the
     XML id.
 
-    :param namespec: tuple of (old name, new name)
+    :param namespec: list of tuples of form (old name, new name)
     """
     for (old_name, new_name) in namespec:
         query = ("UPDATE ir_module_module SET name = %s "

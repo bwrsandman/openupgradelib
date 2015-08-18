@@ -16,13 +16,14 @@ orig_import = __import__
 # This will be the openerp module
 openerp_mock = mock.Mock()
 
+
 def import_mock(name, *args):
     if name == 'openerp' or name.startswith("openerp."):
         return openerp_mock
     return orig_import(name, *args)
 
 if sys.version_info[0] == 3:
-    import builtins
+    import builtins  # flake8: noqa (F401)
     import_str = 'builtins.__import__'
 else:
     import_str = '__builtin__.__import__'
